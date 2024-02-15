@@ -65,6 +65,9 @@ def update_operators(operator: str, operators: list, existing_operators_position
     Returns:
         list: The updated list of operators.
     """
+    # This is a hash map operation.
+    # If the operator is not in the existing operators positions, add it to the list and update the dictionary.
+    # Otherwise, get the operator's position and append the validator ID to the operator's validators list in o(1) time.
     if operator not in existing_operators_positions:
         existing_operators_positions[operator] = len(operators)
         operators.append({'id': operator, 'validators': [validator_id]})
